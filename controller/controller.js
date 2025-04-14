@@ -30,5 +30,17 @@ const multiply = (req, res) => {
     res.status(200).json({ result });
 };
 
-const alladd=
-module.exports = { addition,substraction,multiply};
+
+// using eval 
+const alloperations=(req, res) => {
+    const { value } = req.body;
+    try {
+      const result = eval(value);
+      res.status(200).json({ result });
+    } catch (err) {
+      res.status(400).json({ msg:"invalid value" });
+    }
+  }
+
+
+module.exports = { addition,substraction,multiply,alloperations};
